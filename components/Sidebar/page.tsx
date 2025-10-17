@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { useSidebar, MenuCategory } from '@/components/Sidebar/context'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Icon from '@/components/Icon'
 
 export default function Sidebar({ categories }: { categories: MenuCategory[] }) {
   const pathname = usePathname()
+  const router = useRouter()
   const { openMenus, toggleOpen } = useSidebar()
 
   useEffect(() => {
@@ -33,6 +34,10 @@ export default function Sidebar({ categories }: { categories: MenuCategory[] }) 
       toggleOpen(matching)
     }
   }, [pathname, categories])
+
+  const onClickItem = (href: string) => {
+    router.push(href)
+  }
 
   return (
     <aside className="bg-basic-white h-screen w-60 left-0 top-0 border-r-[1px] border-grey-300">
@@ -89,13 +94,13 @@ export default function Sidebar({ categories }: { categories: MenuCategory[] }) 
                       <div className='overflow-hidden'>
                         {
                           group.items.map((item, row) => (
-                            <Link 
+                            <button 
                               className={
                                 `inline-flex flex-row justify-start items-center gap-3 px-6 h-13 w-full cursor-pointer
                                 ${ pathname === item.href ? 'bg-mint-100 border-r-[3px] border-mint-600' : 'bg-basic-white' }`
                               }
-                              href={item.href}
                               key={item.id}
+                              onClick={ item.onClick ? item.onClick : () => onClickItem(item.href) }
                             >
                               <div className='flex flex-col gap-0 justify-center items-center h-full w-6'>
                                 { /* 위쪽 선 */ }
@@ -124,7 +129,7 @@ export default function Sidebar({ categories }: { categories: MenuCategory[] }) 
                               >
                                 {item.label}
                               </span>
-                            </Link>
+                            </button>
                           ))
                         }
                       </div>

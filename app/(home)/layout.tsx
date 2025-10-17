@@ -22,8 +22,8 @@ export default function AuthLayout({
       label: '모바일약국',
       icon: '/chat_icon.svg',
       items: [
-          { id: 'a', href: '/strawberry/milk', label: '1:1 채팅' },
-          { id: 'b', href: '/strawberry/latte', label: '다중 메시지 전송' }
+          { id: 'a', href: '/mobile/chat', label: '1:1 채팅' },
+          { id: 'b', href: '/mobile/multiple-message', label: '다중 메시지 전송' }
       ]
     },
     {
@@ -31,11 +31,11 @@ export default function AuthLayout({
       label: '운영관리',
       icon: '/operation_icon.svg',
       items: [
-          { id: 'c', href: '/', label: '약국 기본 정보' },
-          { id: 'd', href: '/', label: '굿팜 앱 관리' },
-          { id: 'e', href: '/', label: '그룹관리' },
-          { id: 'f', href: '/', label: '자주쓰는 문구' },
-          { id: 'g', href: '/', label: '자동 메시지 관리' }
+          { id: 'c', href: '/operation/basic-info', label: '약국 기본 정보' },
+          { id: 'd', href: '/operation/app-setting', label: '굿팜 앱 관리' },
+          { id: 'e', href: '/operation/group-setting', label: '그룹관리' },
+          { id: 'f', href: '/operation/phrase', label: '자주쓰는 문구' },
+          { id: 'g', href: '/operation/auto-message', label: '자동 메시지 관리' }
       ]
     },
     {
@@ -43,8 +43,8 @@ export default function AuthLayout({
       label: '회원관리',
       icon: '/member_icon.svg',
       items: [
-          { id: 'h', href: '/choco/milk', label: '회원목록' },
-          { id: 'i', href: '/choco/latte', label: '차단회원 관리' }
+          { id: 'h', href: '/membership/management', label: '회원목록' },
+          { id: 'i', href: '/membership/block', label: '차단회원 관리' }
       ]
     },
     {
@@ -52,8 +52,8 @@ export default function AuthLayout({
       label: '결제관리',
       icon: '/payment_icon.svg',
       items: [
-          { id: 'j', href: '/', label: '결제내역 관리' },
-          { id: 'k', href: '/', label: '페이앱' }
+          { id: 'j', href: '/payment/history', label: '결제내역 관리' },
+          { id: 'k', href: '/', label: '페이앱', onClick: () => { window.open('https://payapp.kr/homepage/index.html') } }
       ]
     }
   ]

@@ -1,11 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import TextField from '@/components/TextField'
 import Icon from '@/components/Icon'
 
 
 function Login() {
+  const router = useRouter()
   const [autoSave, setAutoSave] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -18,6 +20,9 @@ function Login() {
   }
   const onClickAutoSave = (e: React.MouseEvent) => {
     setAutoSave(prev => !prev)
+  }
+  const onClickLogin = (e: React.MouseEvent) => {
+    router.push('/mobile/chat')
   }
 
   return (
@@ -90,7 +95,9 @@ function Login() {
               className='
                 self-stretch bg-mint-600 h-13 rounded-lg 
                 inline-flex justify-center items-center cursor-pointer
-                hover:opacity-80'
+                hover:opacity-80
+              '
+              onClick={onClickLogin}
             >
               <span className='text-basic-white text-lg font-bold leading-7'>
                 로그인
