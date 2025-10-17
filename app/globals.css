@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('@/assets/PretendardVariable.woff2') format('woff2-variations');
 }
 
 @theme inline {
+  /* Brand Color Palette */
+  --color-mint-100: #F2FCFC;
+  --color-mint-200: #E7FBFA;
+  --color-mint-300: #C2F2EF;
+  --color-mint-400: #78E1DC;
+  --color-mint-500: #49D4CE;
+  --color-mint-600: #23C5BE;
+  --color-mint-700: #0AB4AD;
+  --color-mint-800: #16A59F;
+  --color-mint-900: #08837E;
+
+  /* Grey Color Palette */
+  --color-grey-100: #F7F9FA;
+  --color-grey-200: #F1F3F5;
+  --color-grey-300: #E9ECEF;
+  --color-grey-400: #DDE1E6;
+  --color-grey-500: #CED4DA;
+  --color-grey-600: #ADB5BD;
+  --color-grey-700: #868E96;
+  --color-grey-800: #5E646C;
+  --color-grey-900: #343A40;
+
+
+  /* State Color Palette */
+  --color-red-200: #FFF5F5;
+  --color-red-300: #FFCAC7;
+  --color-red-400: #FC8E8B;
+  --color-red-500: #F75B5B;
+  --color-red-600: #F74444;
+  --color-red-700: #E43030;
+
+  --color-blue-200: #F2F9FF;
+  --color-blue-300: #CCDDFF;
+  --color-blue-400: #99B8FF;
+  --color-blue-500: #638DFF;
+  --color-blue-600: #567AFA;
+  --color-blue-700: #3862D6;
+  
+  --color-green-200: #E1FCEC;
+  --color-green-300: #C1F7D7;
+  --color-green-400: #7EE7AE;
+  --color-green-500: #43DD8A;
+  --color-green-600: #1CC880;
+  --color-green-700: #13AF6E;
+
+  --color-yellow-200: #FFF9E7;
+  --color-yellow-300: #FFF1C7;
+  --color-yellow-400: #FFD968;
+  --color-yellow-500: #FFC518;
+  --color-yellow-600: #FF9222;
+  --color-yellow-700: #F57600;
+
+  /* Basic Color Palette */
+  --color-basic-black: #212529;
+  --color-basic-white: #FFFFFF;
+
+  /* 폰트 패밀리 */
+  --font-sans: 'Pretendard Variable', ui-sans-serif, system-ui, sans-serif;
+  --animate-spin-slow: spin 20s linear infinite;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    font-family: var(--font-sans);
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
